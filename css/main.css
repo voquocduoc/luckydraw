@@ -1,11 +1,11 @@
 /*
 Description:
     Contains all the styles for the winning wheel page.
-    
+
 Verison History:
     2012-01-28, Douglas McKechie
     - Created based off earlier version.
-    
+
     2015-09-26, Douglas McKechie
     - Minor updates for the 2.0 winwheel example.
 */
@@ -123,4 +123,24 @@ td.pw3
   bottom: 0px;
   width: 250px;
   left: 250px;
+}
+@font-face {
+  font-family: "UTM Avo";
+  src: url(font/UTM Avo.ttf);
+}
+@font-face {
+  font-family: "UTM AvoBold_Italic";
+  src: url(font/UTM AvoBold_Italic.ttf);
+}
+@font-face {
+  font-family: "UTM AvoBold";
+  src: url(font/UTM AvoBold.ttf);
+}
+@font-face {
+  font-family: "UTM AvoItalic";
+  src: url(font/UTM AvoItalic.ttf);
+}
+@font-face {
+  font-family: "UTM Habano";
+  src: url(font/UTM Habano.ttf);
 }

@@ -1,8 +1,8 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
-*{  
+*{
     padding: 0;
     margin: 0;
     border: 0;
@@ -16,8 +16,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -28,13 +28,13 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
 	color: #fff;
-    font-family: 'Roboto', Helvetica, Arial,sans-senif;
+    font-family: 'UTM Avo', Helvetica, Arial,sans-senif;
     line-height: 28px;
     font-size: 33px;
     background-color: transparent;
@@ -61,7 +61,7 @@ table {
         color: #fff;
     font-weight: 700;
     font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'UTM Avo', sans-serif;
 }
 .content{
 	margin-top: 40px;
@@ -78,6 +78,10 @@ table {
 .img-wapper img{
 	width: 100%;
 	height: 100%;
+}
+.content .btn-default {
+  background: #f05a21 !important;
+  color: white;
 }
 
 .button-play {
@@ -101,7 +105,7 @@ box-shadow: 0px 0px 247px -2px rgba(239,239,242,1);
     color: #E13D19;
     /* display: block; */
     margin-top: 21px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'UTM Avo', sans-serif;
     position: absolute;
     top: 45px;
     left: 30px;
@@ -180,4 +184,24 @@ background: #ffae00;
 }
 .footer img{
     width: 100%;
+}
+@font-face {
+  font-family: "UTM Avo";
+  src: url(font/UTM Avo.ttf);
+}
+@font-face {
+  font-family: "UTM AvoBold_Italic";
+  src: url(font/UTM AvoBold_Italic.ttf);
+}
+@font-face {
+  font-family: "UTM AvoBold";
+  src: url(font/UTM AvoBold.ttf);
+}
+@font-face {
+  font-family: "UTM AvoItalic";
+  src: url(font/UTM AvoItalic.ttf);
+}
+@font-face {
+  font-family: "UTM Habano";
+  src: url(font/UTM Habano.ttf);
 }

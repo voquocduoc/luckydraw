@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 @ob_start();
 session_start();
 ?>
@@ -15,10 +15,10 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/style-login.css" media="screen">
 	<!-- <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> -->
 	 <script type="text/javascript" src="js/function.js"></script>
-	
+
 </head>
 <body>
-	<?php include('db.php'); //connect database 
+	<?php include('db.php'); //connect database
 	header('Content-Type: text/html; charset=utf-8'); ?>
 <?php if (isset($_POST["bt_login"])) {
         // lấy thông tin người dùng
@@ -36,7 +36,7 @@ session_start();
         	header('Content-Type: text/html; charset=utf-8');
            $sql = "SELECT fValidOTP('".$code."','".$name."','".$phone."','".$id_user."')";
             mysql_set_charset('utf8',$db);
-            
+
             $query=mysql_query($sql);
            $row=mysql_fetch_array($query);
                 if($row[0] == 0){
@@ -46,9 +46,9 @@ session_start();
                 	setcookie('isLoginUser', 'success',time()+600);
                 	$_SESSION['Code'] = $code;
                     header('Location: index.php');
-                }               
-               
-           
+                }
+
+
         }
     }
     ?>
@@ -68,8 +68,8 @@ session_start();
 
 		<form role="form" action="user-login.php" method="post" enctype="multipart/form-data" onsubmit="return doUpload();">
 		  <div class="form-group">
-		  	
-		  	
+
+
 		  	<input class="form-control" type="text" name="name" placeholder="Họ và tên / Name">
 		  	<br>
 		  	<input class="form-control" type="number" name="phone" placeholder="Số điện thoại / Phone">
@@ -78,15 +78,15 @@ session_start();
 		  	<br>
 		   <input class="form-control" type="text" name="id_user" placeholder="Mã khách hàng / Code member">
 		   </br>
-		   <input type="submit"  class="btn btn-default" name="bt_login" value="Let's Go">
-		   
+		   <input type="submit"  class="btn btn-default form-control" name="bt_login" value="Let's Go">
+
 		   </div>
 		</form>
-		
+
 		</div>
-		
+
 		</div>
 		</div>
-		
+
 </body>
 </html>

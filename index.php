@@ -1,4 +1,4 @@
-<?php 
+<?php
 @ob_start();
 session_start();
 if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
@@ -20,16 +20,16 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 </head>
 <body>
 <div class="title">
-	<img src="images/hinh.png" alt="" style="width: 100%;">
+	<img src="images/hinh.png" alt="" style="width: 102%;">
 </div>
 <div class="wapper">
 <div class="container-fluid margin-content">
-	<?php 
+	<?php
 		$files_and_folder = glob('uploads/*');
 		 $ghepchuoi = implode(",",$files_and_folder);
 		 $image_show_first = explode(",", $ghepchuoi);
 		 /***** connect database ***/
-		 include('db.php'); 
+		 include('db.php');
 		$sql = "SELECT * FROM define_gift";
 		$query=mysql_query($sql);
 		$arr_list_rate =array();
@@ -43,12 +43,12 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
         $str_rate = implode(",", $arr_list_rate);
         $str_id = implode(",", $arr_list_id);
         $str_msg = implode(",", $arr_list_msg);
-?>		
+?>
 		<input type="hidden" id="list_msg" value="<?php echo $str_msg ?>">
 		<input type="hidden" id="list_id" value="<?php echo $str_id ?>">
 		<input type="hidden" id="list_rate" value="<?php echo $str_rate ?>">
 		<input type="hidden" id="savedata" value="<?php echo $ghepchuoi ?>">
-<?php 
+<?php
 
 	if($_SESSION['Code']){
 		 $code = $_SESSION['Code'];
@@ -75,7 +75,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 			}
 		</style>
 	<div class="row">
-		
+
 		<div class="col-md-12">
 			<div class="row">
 				 <div align="center">
@@ -92,9 +92,9 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 				          	<td width="78" align="center" id="pw3" onClick="powerSelected(3);">High</td>
 				          	<td align="center" id="pw2" onClick="powerSelected(2);">Med</td>
 				          	<td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
-				          </tr> 
+				          </tr>
 				        </table>
-				        
+
 				        <script type="text/javascript" >
 							function runSpin(){
 								/* tra ve gi tri trung thuong */
@@ -106,7 +106,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 										 var sub = val.split("_");
 										 list.push(parseInt(sub[1]));
 										 key.push(index);
-										
+
 									});
 								var list_rate_db = $('#list_rate').val().split(",");
 								var key_id_db = $('#list_id').val().split(",");
@@ -116,10 +116,10 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 									}else{
 										return result =  random(key_id_db,list_rate_db);
 									}
-						   			
+
 						        }
 						    function getFileShow(){
-						  
+
 								var segments_arr = new Array();
 								var getdata = $('#list_msg').val().split(",");
 								$.each(getdata, function(index, val) {
@@ -128,8 +128,8 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 									tonghop['image']= sub[1];
 									tonghop['text'] = sub[0];
 									segments_arr.push(tonghop);
-									
-								
+
+
 								 });
 								//console.log(segments_arr);
 								return segments_arr;
@@ -137,7 +137,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 							function random(aa, pp){
 									//var aa =new Array('0','10','20','30','40','50','100','100');
 								   // var pp =new Array('0','50','10','10','10','10','5','5');
-								
+
 								    var data = new Array();
 								    for (var i = 0; i < pp.length; i++){
 								    		var gtri = pp[i];
@@ -146,7 +146,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 								    		}
 								    }
 								   var result =  Math.floor(Math.round(Math.random() * (data.length-1)));
-							
+
 								  return  data[result];
 							}
 
@@ -160,42 +160,42 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 						                if (x < sum) return i;
 						            }
 						    }
-						    
+
 							</script>
 
-				         <script>    
+				         <script>
 
 				            var theWheel = new Winwheel({
-				                'numSegments'       : getFileShow().length,   // count item              
-				                //'outerRadius'       : 200,               
-				                'drawText'          : true,              
+				                'numSegments'       : getFileShow().length,   // count item
+				                //'outerRadius'       : 200,
+				                'drawText'          : true,
 				                'textFontSize'      : 0,
 				                'textOrientation'   : 'curved',
 				                'textAlignment'     : 'inner',
 				                'textMargin'        : '90',
 				                'textFontFamily'    : 'monospace',
-				                'outerRadius'  		: 200,   //thay doi khi thay doi kich thuoc anh  
+				                'outerRadius'  		: 200,   //thay doi khi thay doi kich thuoc anh
 				                'textStrokeStyle'   : 'black',
 				                'textLineWidth'     : 3,
 				                'textFillStyle'     : 'white',
-				                'drawMode'          : 'segmentImage',    
-				                'segments'          :                   
-				                
+				                'drawMode'          : 'segmentImage',
+				                'segments'          :
+
 				                   getFileShow()
 
 				                ,
-				                'animation' :          
+				                'animation' :
 				                {
 				                    'type'     : 'spinToStop',
-				                    'duration' : 5,     
-				                    'spins'    : 8,    
+				                    'duration' : 5,
+				                    'spins'    : 8,
 				                    'callbackFinished' : 'alertPrize()'
 				                }
 				            });
-				            
+
 				            var wheelPower    = 0;
 				            var wheelSpinning = false;
-				            
+
 				            function powerSelected(powerLevel)
 				            {
 				                if (wheelSpinning == false)
@@ -204,7 +204,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 				                    document.getElementById('pw1').className = "";
 				                    document.getElementById('pw2').className = "";
 				                    document.getElementById('pw3').className = "";
-				                    
+
 				                    // Now light up all cells below-and-including the one selected by changing the class.
 				                    if (powerLevel >= 1)
 				                    {
@@ -218,16 +218,16 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 				                    {
 				                        document.getElementById('pw3').className = "pw3";
 				                    }
-				                    
+
 				                    // Set wheelPower var used when spin button is clicked.
 				                    wheelPower = powerLevel;
-				                    
+
 				                    // Light up the spin button by changing it's source image and adding a clickable class to it.
 				                    document.getElementById('spin_button').src = "images/spin_on.png";
 				                    document.getElementById('spin_button').className = "clickable";
 				                }
 				            }
-				          
+
 				            function startSpin()
 				            {
 				                if (wheelSpinning == false)
@@ -244,18 +244,18 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 				                    {
 				                        theWheel.animation.spins = 15;
 				                    }
-				                    
+
 				                    // Disable the spin button so can't click again while wheel is spinning.
 				                    // document.getElementById('spin_button').src       = "images/spin_off.png";
 				                    // document.getElementById('spin_button').className = "";
 									var id = runSpin();
-									
+
 				                    var stopAt = theWheel.getRandomForSegment(parseInt(id));
 
 				                	theWheel.animation.stopAngle = stopAt;
 
 				                    theWheel.startAnimation();
-				                    
+
 				                    wheelSpinning = true;
 				                    $('#magiam').slideUp();
 				                    $('#spin_button').slideUp();
@@ -274,7 +274,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 
 				                }
 				            }
-				   
+
 			            	function resetWheel()
 				            {	 //document.getElementById('spin_button').src       = "images/spin_on.png";
 				            	//$('#spin_button').slideDown();
@@ -284,15 +284,15 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 				                //theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
 				                theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
 				                theWheel.draw();                // Call draw to render changes to the wheel.
-				             
+
 				                wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
 				            }
-				            
+
 				            function alertPrize()
 				            {
 				            	var winningSegment = theWheel.getIndicatedSegment();
 				            	$("#restart").slideDown('slow');
-				                
+
 				                if(parseInt(winningSegment.text)==0){
 				                	alert('chúc bạn may mắn lần sau.');
 				                	$('#magiam').slideUp();
@@ -307,12 +307,12 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 					               // 	data: {data: winningSegment.text},
 					               // })
 					               // .done(function(result) {
-					               
+
 					               // 	if(result =='hetma'){
 					               // 		alert('Mã '+winningSegment.text+'% đã hết !');
 					               // 		$("#restart").slideDown('slow');
 					               // 		$('#magiam').slideUp();
-					               		
+
 					               // 	}else{
 					               // 		$('#discount').val(result);
 					               // 		$('#magiam').slideDown();
@@ -323,7 +323,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 					               // });
 
 				                	alert(winningSegment.text);
-				            		
+
 				                };
 				               //winningSegment.text
 				            }
@@ -333,9 +333,9 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 			</div>
-		
+
 		</div>
-		
+
 	</div>
 </div>
 </div>
@@ -345,7 +345,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 		<img id="spin_button" src="images/spin_on.png" alt="Spin" onClick="startSpin();" />
 	    <img src="images/spin_lai.png" id="restart" onClick="resetWheel(); return false;" style="display: none" />
 	</div>
-		
+
 	</div>
 <div id="magiam" class="magiamgia form-inline" style="text-align: center;margin-top: 95px;font-size: 40px;padding-bottom: 20px;height: 50px;display: none;">
 	<label for="discount" style="font-size: 40px;font-family: times;">Mã giảm giá</label>
@@ -363,7 +363,7 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
    chúc bạn may mắn lần sau !
   </div>
   <div id="mask"></div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
 </div>
 <script type="text/javascript">
 	function showpupop(){
@@ -371,26 +371,26 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 		//Get the screen height and width
 		var maskHeight = $(document).height();
 		var maskWidth = $(window).width();
-			
+
 		//Set heigth and width to mask to fill up the whole screen
 		$('#mask').css({'width':maskWidth,'height':maskHeight});
 
 		//transition effect
-		$('#mask').fadeIn(500);	
-		$('#mask').fadeTo("slow",0.9);	
-			
+		$('#mask').fadeIn(500);
+		$('#mask').fadeTo("slow",0.9);
+
 		//Get the window height and width
 		var winH = $(window).height();
 		var winW = $(window).width();
-		              
+
 		//Set the popup window to center
 		$(id).css('top',  winH/2-$(id).height()/2);
 		$(id).css('left', winW/2-$(id).width()/2);
-			
+
 		//transition effect
-		$(id).fadeIn(2000); 
+		$(id).fadeIn(2000);
 	}
-	$(document).ready(function() {	
+	$(document).ready(function() {
 		$('.window .close').click(function (e) {
 		//Cancel the link behavior
 		e.preventDefault();
@@ -404,8 +404,8 @@ if(!isset($_COOKIE['isLoginUser']) ||  $_COOKIE['isLoginUser'] != 'success' ){
 			$(this).hide();
 			$('.window').hide();
 		});
-											
+
 });
-</script>						
+</script>
 </body>
 </html>
